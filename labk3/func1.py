@@ -103,7 +103,7 @@ def game():
             number_gusses += 1 
  
         elif user_answer == number: 
-            print(f"Good job, {user_name}! You guessed my number in {number_of_gusses} guesses!") 
+            print(f"Good job, {user_name}! You guessed my number in {number_gusses} guesses!") 
  
             break
 
