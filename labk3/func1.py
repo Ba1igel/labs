@@ -1,5 +1,5 @@
 from math import sqrt 
-from itertools import permutations 
+from itertools import permutations
  
  
 def gramsToOunces(grams): 
@@ -16,8 +16,8 @@ def solve(num_heads, num_legs):
     chickens = num_heads - rabbits 
  
     print(f"Number of rabbits: {rabbits}, Number of chickens: {chickens}") 
- 
- 
+
+print(solve(15,12))
 def is_prime(x): 
     if x < 2: 
         return False 
@@ -66,8 +66,9 @@ def volumeOfSphere(radius):
  
  
 def uniq(lst): 
-    return list(dict.fromkeys(lst)) 
- 
+    return list(dict.fromkeys(lst))
+
+print(uniq([1,2,3,4,5,1,2,3,4,5]))
 def is_palindrome(x): 
     return x == x[::-1] 
  

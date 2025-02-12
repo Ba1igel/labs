@@ -20,7 +20,8 @@ class Square(Shape):
 
     def area(self):
         return self.length ** 2
-
+s = Square(4)
+print(s.area())
 class Rectangle(Shape):
     def __init__(self, length: float = 0, width: float = 0):
         self.length = length
@@ -28,7 +29,8 @@ class Rectangle(Shape):
 
     def area(self):
         return self.length * self.width
-
+q = Rectangle(5, 7)
+print(q.area())
 class Point:
     def __init__(self, x, y):
         self.x = x
