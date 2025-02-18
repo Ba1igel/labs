@@ -1,2 +1,2 @@
 import datetime as dat
-print(dt.datetime.now().replace(microsecond=0))
+print(dat.datetime.now().replace(microsecond=0))
