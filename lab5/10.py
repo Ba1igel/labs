@@ -1,0 +1,10 @@
+import re
+
+def camel_to_snake(camel_str):
+    words = re.sub(r'([a-z])([A-Z])', r'\1 \2', camel_str).lower().split('_')
+    snake_case = '_'.join(words)
+    return snake_case
+
+camel_case_string = "HelloWorldExamppple"
+snake_case_string = camel_to_snake(camel_case_string)
+print(snake_case_string)
