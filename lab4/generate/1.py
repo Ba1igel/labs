@@ -6,3 +6,4 @@ def generator(n:int = 1):
 
 for i in generator(10):
     print(i, end=" ")
+
