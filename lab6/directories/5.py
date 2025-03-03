@@ -1,3 +1,6 @@
+#Write a Python program to write a list to a file.
+
+
 def listToFile(path, data_list):
     with open(path, 'w', encoding='utf-8') as file:
         for item in data_list:
