@@ -3,7 +3,7 @@ import os
 
 def list_items(path):
 
-    all_items = os.listdir(path)
+    all_items = os.listdir(path)   #берем список всех файлов и папок в указанной директории.
     full_paths = [os.path.join(path, item) for item in all_items]
 
     directories = [item for item in full_paths if os.path.isdir(item)]
