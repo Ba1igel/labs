@@ -23,8 +23,8 @@ while running:
     povernut_minute = pygame.transform.rotate(min_r_hand, min_angle)
     povernut_second = pygame.transform.rotate(sec_l_hand, sec_angle)
 
-    screen.blit(clock_beti, clock_beti.get_rect(center=orta))
-    screen.blit(povernut_minute, povernut_minute.get_rect(center=orta)) 
+    screen.blit(clock_beti, clock_beti.get_rect(center=orta)) #создаёт прямоугольник, центр которого совпадает с orta (середина экрана).
+    screen.blit(povernut_minute, povernut_minute.get_rect(center=orta)) #русиуем изобрж
     screen.blit(povernut_second, povernut_second.get_rect(center=orta))
 
     pygame.display.update()

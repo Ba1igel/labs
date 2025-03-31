@@ -8,18 +8,23 @@ runTime = True
 
 x = Window_Width / 2
 y = Window_Hight / 2
-RADIUS = 50
+RADIUS = 100
 RED = (255, 0, 0)
 
+is_blue = True
+running = True
 clock = pygame.time.Clock()
 
 while runTime:
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                         runTime = False
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                        is_blue = not is_blue
-        
+                if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_SPACE:
+                                is_blue = not is_blue 
+
+        color = (0, 0, 255) if is_blue else (255, 0, 0)
+
         pressed = pygame.key.get_pressed()
         
         if x + RADIUS > Window_Width: x = Window_Width - RADIUS
@@ -33,7 +38,7 @@ while runTime:
         if pressed[pygame.K_RIGHT]: x += 20
         
         screen.fill((255, 255, 255))
-        pygame.draw.circle(screen, RED, (x, y), RADIUS)
+        pygame.draw.circle(screen, color, (x, y), RADIUS)
         
         pygame.display.flip()
         clock.tick(60)

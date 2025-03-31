@@ -1,43 +1,43 @@
-# Импортируем библиотеки
+
 import pygame, sys
 from pygame.locals import *
 import random, time
 
-# Инициализация Pygame
+
 pygame.init()
 
-# Частота обновления экрана (FPS)
+
 FPS = 60
 FramePerSec = pygame.time.Clock()
 
-# Определяем цвета
+
 BLUE  = (0, 0, 255)
 RED   = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-# Определяем параметры экрана и скорости
+
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
 SPEED = 5
 SCORE = 0
 
-# Шрифты и текст
+
 font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, BLACK)
 
-# Загружаем фон
+
 background = pygame.image.load(r"C:\Users\bajge\OneDrive\PP2\lab 9\AnimatedStreet.png")
 
-# Создаём экран
+
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-DISPLAYSURF.fill(WHITE)
+DISPLAYSURF.fill(WHITE) #заполняем экран белым
 pygame.display.set_caption("Game")
 
-# Класс игрока
-class Player(pygame.sprite.Sprite):
+
+class Player(pygame.sprite.Sprite): #наша синяя машинка
     def __init__(self):
         super().__init__() 
         self.image = pygame.image.load(r"C:\Users\bajge\OneDrive\PP2\lab 9\Player.png")
@@ -56,8 +56,8 @@ class Player(pygame.sprite.Sprite):
         if self.rect.bottom < SCREEN_HEIGHT and pressed_keys[K_DOWN]:
             self.rect.move_ip(0, 5)
 
-# Класс врага
-class Enemy(pygame.sprite.Sprite):
+
+class Enemy(pygame.sprite.Sprite):# red car
     def __init__(self):
         super().__init__() 
         self.image = pygame.image.load(r"C:\Users\bajge\OneDrive\PP2\lab 9\Enemy.png")
@@ -72,12 +72,12 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.top = 0
             self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
-# Класс монет с разным весом (1, 3, 5 очков)
+
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load(r"C:\Users\bajge\OneDrive\PP2\lab 9\BuffCoin.png")
-        self.image = pygame.transform.scale(self.image, (60, 60))
+        self.image = pygame.transform.scale(self.image, (60, 60)) #change the size of image
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
         self.value = random.choice([1, 3, 5])  # cost  1, 3 или 5 очков
@@ -94,17 +94,17 @@ class Coin(pygame.sprite.Sprite):
         self.rect.top = 0  # Убираем монету после сбора
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
-# Функция увеличения скорости врагов каждые 20 очков
+
 def increase_enemy_speed():
     global SPEED
     if SCORE % 20 == 0 and SCORE != 0:  # Увеличиваем скорость при кратном 20 количестве очков
         SPEED += 1
 
-# Создаём объекты
+
 P1 = Player()
 E1 = Enemy()
 
-# Группы спрайтов
+
 enemies = pygame.sprite.Group()
 enemies.add(E1)
 
@@ -113,30 +113,30 @@ all_sprites.add(P1) # добавляем
 all_sprites.add(E1)
 
 coins = pygame.sprite.Group()
-for _ in range(1):  # Создаём три монеты
+for _ in range(1):  # Создаём монеты
     coin = Coin()
     coins.add(coin)
     all_sprites.add(coin)
 
-# Ивент для увеличения скорости
-INC_SPEED = pygame.USEREVENT + 1
+
+INC_SPEED = pygame.USEREVENT + 1 # УВЕЛЕЧЕНИЕ СКОРОСТИ 
 pygame.time.set_timer(INC_SPEED, 1000)
 
-# Главный игровой цикл
+
 while True:
-    for event in pygame.event.get():
+    for event in pygame.event.get(): #цикл игры 
         if event.type == INC_SPEED:
             SPEED += 0.5      
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
 
-    # риусссууем  фон
-    DISPLAYSURF.blit(background, (0, 0))
+  
+    DISPLAYSURF.blit(background, (0, 0)) #  рисум фон
     scores = font_small.render(str(SCORE), True, BLACK)
     DISPLAYSURF.blit(scores, (10, 10))
 
-    # Обновление всех спиритов 
+
     for entity in all_sprites:
         entity.move()
         DISPLAYSURF.blit(entity.image, entity.rect)

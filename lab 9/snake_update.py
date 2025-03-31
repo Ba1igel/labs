@@ -64,7 +64,7 @@ while running:
 
     if disappearing_food is None and int(curent_time) % disappearing_food_interval == 0: #invisable food gtntrftion 
         disappearing_food = food_spawn()
-        disappearing_food_timer = curent_time + 7 # чеоез . секунд еда уходит
+        disappearing_food_timer = curent_time + 7 # чеоез 7 секунд еда уходит
 
     if disappearing_food and curent_time >= disappearing_food_timer:
         disappearing_food = None

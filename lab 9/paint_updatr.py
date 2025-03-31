@@ -63,12 +63,13 @@ def main():
                 if shape == 'rectangle':
                     pygame.draw.rect(screen, color, pygame.Rect(start_pos, (end_pos[0] - start_pos[0], end_pos[1] - start_pos[1])))
                 elif shape == 'square':
-                    side = min(abs(end_pos[0] - start_pos[0]), abs(end_pos[1] - start_pos[1]))
+                    side = min(abs(end_pos[0] - start_pos[0]), abs(end_pos[1] - start_pos[1])) # formulas
                     pygame.draw.rect(screen, color, pygame.Rect(start_pos, (side, side)))
                 elif shape == 'circle':
                     radius = int(math.dist(start_pos, end_pos))
                     pygame.draw.circle(screen, color, start_pos, radius)
                 elif shape == 'triangle_right':
+
                     pygame.draw.polygon(screen, color, [start_pos, (start_pos[0], end_pos[1]), end_pos])
                 elif shape == 'triangle_equilateral':
                     height = abs(end_pos[1] - start_pos[1])

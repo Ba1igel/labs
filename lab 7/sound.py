@@ -16,7 +16,7 @@ current_song = 0
 paused = False
 
 def play_music():
-    pygame.mixer.music.load(songs[current_song])
+    pygame.mixer.music.load(songs[current_song]) # upload the songs but now play it
     pygame.mixer.music.play()
 
 play_music()

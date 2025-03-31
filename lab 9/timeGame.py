@@ -1,7 +1,4 @@
-#Imports
-#File must be executed in dir where placed task 
-#in the terminal use cd .\Lab8\task1
-#then you can start game
+
 import pygame, sys
 from pygame.locals import *
 import random, time
