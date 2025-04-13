@@ -6,4 +6,4 @@ def sequence(n: int):
         it += 1
 
 for i in sequence(int(input())):
-    print(i)
+    r"C:\Users\bajge\OneDrive\PP2\lab8\BuffCoin.png"

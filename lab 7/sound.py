@@ -47,7 +47,6 @@ while running:
             elif event.key == pygame.K_d:
                 current_song = (current_song + 1) % len(songs)
                 play_music()
-
             elif event.key == pygame.K_a:
                 current_song = (current_song - 1) % len(songs)
                 play_music()
